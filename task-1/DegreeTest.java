@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class DegreeTest {
     private final DegreeCalculator calculator = new DegreeCalculator();
@@ -12,5 +13,12 @@ public class DegreeTest {
         assertEquals(0, calculator.yearsToCompleteDegree("amk"));
         assertEquals(0, calculator.yearsToCompleteDegree("SLDFKPOUY35096IK3"));
         assertEquals(0, calculator.yearsToCompleteDegree("-685"));
+    }
+
+    @Test
+    void TestExceptions() {
+        assertThrows(NullPointerException.class, () -> {
+            calculator.yearsToCompleteDegree(null);
+        });
     }
 }
