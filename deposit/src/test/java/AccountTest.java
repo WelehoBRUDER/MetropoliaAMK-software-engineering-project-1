@@ -22,4 +22,13 @@ public class AccountTest {
         assertEquals(0.0, account.withdraw(980));
         assertEquals(660, account.getBalance());
     }
+    @Test
+    public void largerBalance() {
+        Account account = new Account();
+        account.deposit(9500);
+        assertEquals(9500, account.getBalance());
+        assertEquals(0.0, account.withdraw(5000));
+        account.setWithdrawLimit(5000);
+        assertEquals(5000, account.withdraw(5000));
+    }
 }

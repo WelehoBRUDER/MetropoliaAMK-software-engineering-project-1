@@ -25,8 +25,9 @@ public class Account {
             return 0.0;
         }
         if (amount > balance || withdrawLimit < amount) {
+            double maxDraw = Math.min(withdrawLimit, amount);
             System.out.println("Trying to withdraw too much at once!");
-            System.out.println("Your current balance is " + this.balance + "€, maximum withdrawal is " + this.withdrawLimit + "€");
+            System.out.println("Your current balance is " + this.balance + "€, maximum withdrawal is " + maxDraw + "€");
             return 0.0;
         }
         this.balance -= amount;
